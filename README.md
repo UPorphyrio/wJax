@@ -58,7 +58,6 @@
 > //使用async/await
 > 
 > (async ()=>{
->   let wjax =new wJax();
 >   let res = await new wJax({
 >       methor:methor,
 >       url:url,
