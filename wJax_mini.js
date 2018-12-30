@@ -5,7 +5,7 @@
         ? new XMLHttpRequest()
         : new ActiveXObject();
       this.error = null;
-      this.send(config);
+      if (config != undefined) this.send(config);
     }
     send(config) {
       let { methord, url, data, sync = true, timeOut = 100 } = config;
