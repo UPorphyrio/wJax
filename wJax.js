@@ -67,20 +67,6 @@ function setTimeOut(timeOut) {
   };
 }
 /**
- * 结果返回promise对象
- */
-function send_promise(methord, url, data, sync = true, timeOut = 5000) {
-  let promise = new Promise((reslove, reject) => {
-    try {
-      this.send(methord, url, data, (sync = true), (timeOut = 5000));
-      this.sucsess(reslove);
-    } catch (error) {
-      reject(error);
-    }
-  });
-  return promise;
-}
-/**
  *实现类似promise对象的操作，使用then方法来进行对回调函数的拆分
  * @param {Function} reslove 成功时执行的回调函数
  * @param {Function} reject 失败时执行的回调函数
