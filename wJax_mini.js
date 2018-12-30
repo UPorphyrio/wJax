@@ -8,7 +8,15 @@
       if (config != undefined) this.send(config);
     }
     send(config) {
-      let { methord, url, data, sync = true, timeOut = 100 } = config;
+      let {
+        methord,
+        url,
+        data,
+        sucsess,
+        Catch,
+        sync = true,
+        timeOut = 100
+      } = config;
       methord = methord.toLowerCase();
       let formdata = new FormData();
       if (methord == "get") {
@@ -24,15 +32,21 @@
         for (let val in data) {
           formdata.append(val, data[val]);
         }
-      else throw new Error("HTTP Methord Error");
+      else this.error = "HTTP Methord Error";
       this.setTimeOut(timeOut);
       this.xhr.open(methord, url, sync);
       try {
-        if (methord == "get") this.xhr.send(null);
-        else if (methord == "post") this.xhr.send(formdata);
+        if (methord == "get") {
+          this.xhr.send(null);
+          this.sucsess(sucsess);
+        } else if (methord == "post") {
+          this.xhr.send(formdata);
+          this.sucsess(sucsess);
+        }
       } catch (error) {
         this.error = error;
       }
+      if (Catch) this.catch(Catch);
       return this;
     }
     sucsess(reslove) {

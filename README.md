@@ -23,7 +23,20 @@
 > }).catch(err=>{
 >   console.log(err);
 > });
-> 
+> //类似jquery的ajax方法
+> new wJax({
+>   methor:methor,
+>   url:url,
+>   data:data,
+>   sync:[sync],
+>   timeout:[timeout=100ms],
+>   sucsess(res=>{
+>    console.log(res);        
+>    }),
+>   catch(err=>{
+> 	  console.log(err);
+> 	})
+> })
 > 
 > //使用send方法
 > let wjax =new wJax();
