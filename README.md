@@ -33,7 +33,7 @@
 >   sucsess(res=>{
 >    console.log(res);        
 >    }),
->   catch(err=>{
+>   Catch(err=>{
 > 	  console.log(err);
 > 	})
 > })
