@@ -51,7 +51,10 @@
     }
     sucsess(reslove) {
       this.xhr.onreadystatechange = () => {
-        if (this.xhr.readyState == 4 && this.xhr.status == 200) {
+        if (
+          (this.xhr.status >= 200 && this.xhr.status < 300) ||
+          this.xhr.status == 304
+        ) {
           reslove(this.xhr.responseText);
         }
       };
